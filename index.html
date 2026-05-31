@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JobPrep Hub is a premium all-in-one preparation website and job portal. Master Aptitude, DSA sheets, and Technical concepts while targeting real-world engineering careers.">
+  <meta name="keywords" content="Job Portal, Career Preparation, DSA Sheets, Leetcode tracking, Quantitative Aptitude, Technical Interviews, Interview Syllabus">
+  <meta name="author" content="JobPrep Hub Team">
+  <title>JobPrep Hub — Premium Job Portal & Preparation Platform</title>
+  
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="styles.css?v=10">
+</head>
+<body>
+
+  <!-- App Wrapper Grid -->
+  <div id="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar">
+      <div class="brand">
+        <div class="brand-icon">JP</div>
+        <div class="brand-name">JobPrep Hub</div>
+      </div>
+      
+      <!-- Sidebar Navigation Links (Fully Visible & Stable) -->
+      <nav id="sidebar-nav">
+        <a class="nav-item active" data-section="jobs" id="nav-jobs">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Job Portal
+        </a>
+        <a class="nav-item" data-section="prep" id="nav-prep">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+          Prep Zone
+        </a>
+        <a class="nav-item" data-section="companies" id="nav-companies">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 18h12"/><path d="M6 14h12"/><path d="M6 10h12"/><path d="M6 6h12"/></svg>
+          Hiring Patterns
+        </a>
+        <a class="nav-item" data-section="dsa" id="nav-dsa">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          DSA Sheets
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Workspace Container -->
+    <main>
+      
+      <!-- Shared Header -->
+      <header>
+        <div class="header-title-section">
+          <h1 id="dynamic-header-title">Find Your Next Role</h1>
+          <p id="dynamic-header-subtitle">Apply to curated high-paying tech openings and level up your coding skills.</p>
+        </div>
+        
+        <div class="header-controls" style="position: relative;">
+          <!-- Theme Switcher Button -->
+          <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle visual theme">
+            <span>
+              <!-- Injected by JS -->
+            </span>
+          </button>
+
+          <!-- 1. HEADER AUTH BOX (Shown when logged out) -->
+          <div id="header-auth-box" class="header-auth-container">
+            <button class="btn-primary" id="btn-auth-trigger" style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; padding: 11px 18px; border-radius: 12px; font-weight: 600;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Sign In / Sign Up
+            </button>
+
+            <!-- Floating attractive Auth Dropdown -->
+            <div id="header-auth-dropdown" class="glass-card header-auth-dropdown">
+              <div class="auth-dropdown-tabs">
+                <button class="auth-dropdown-tab active" id="dropdown-tab-signin-btn">Sign In</button>
+                <button class="auth-dropdown-tab" id="dropdown-tab-signup-btn">Sign Up</button>
+              </div>
+
+              <!-- A. Sign In Form -->
+              <form id="dropdown-signin-form" class="auth-dropdown-form active-form">
+                <div class="attractive-input-group">
+                  <input type="email" id="dropdown-signin-email" required placeholder="Email Address">
+                  <span class="input-focus-line"></span>
+                </div>
+                <div class="attractive-input-group">
+                  <input type="password" id="dropdown-signin-password" required placeholder="Password">
+                  <span class="input-focus-line"></span>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 11px; font-size: 0.9rem; font-weight: 600; margin-top: 8px; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);">Sign In</button>
+                <button type="button" class="btn-guest-explore" id="dropdown-btn-guest-explore" style="width: 100%; padding: 9px; font-size: 0.85rem; background: transparent; border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-secondary); cursor: pointer; margin-top: 8px; font-weight: 600; transition: var(--transition-smooth);">Explore as Guest</button>
+              </form>
+
+              <!-- B. Sign Up Form -->
+              <form id="dropdown-signup-form" class="auth-dropdown-form">
+                <div class="attractive-input-group">
+                  <input type="text" id="dropdown-signup-name" required placeholder="Full Name">
+                  <span class="input-focus-line"></span>
+                </div>
+                <div class="attractive-input-group">
+                  <input type="email" id="dropdown-signup-email" required placeholder="Email Address">
+                  <span class="input-focus-line"></span>
+                </div>
+                <div class="attractive-input-group">
+                  <select id="dropdown-signup-role" style="width: 100%; padding: 10px 12px; border-radius: 10px; background: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.85rem; outline:none;">
+                    <option value="Frontend Engineer">Frontend Engineer</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                    <option value="Fullstack Engineer">Fullstack Engineer</option>
+                    <option value="DevOps & Cloud">DevOps & Cloud</option>
+                    <option value="AI / ML Specialist">AI / ML Specialist</option>
+                  </select>
+                </div>
+                <div class="attractive-input-group">
+                  <input type="password" id="dropdown-signup-password" required placeholder="Password">
+                  <span class="input-focus-line"></span>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 11px; font-size: 0.9rem; font-weight: 600; margin-top: 8px; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);">Create Account</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- 2. QUICK USER PROFILE WIDGET (Shown when logged in) -->
+          <div id="header-profile-box" class="header-profile-box" style="display: none;">
+            <div class="user-quick-profile-header">
+              <div class="avatar" id="user-avatar">JD</div>
+              <div class="user-info-header">
+                <span class="username" id="user-display-name">John Doe</span>
+                <span class="user-status" id="user-display-role">Active Learner</span>
+              </div>
+              <button id="btn-logout" title="Sign Out" aria-label="Sign out" style="background: none; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: 8px; transition: var(--transition-smooth);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Locked Overlay Card with Embedded Premium Auth Forms (Visible only when logged out) -->
+      <div class="auth-lock-card glass-card" style="max-width: 450px; width: 100%; z-index: 500; padding: 36px 30px; border-radius: 24px; margin: 20px auto;">
+        <div class="lock-icon-wrapper" style="width: 50px; height: 50px; border-radius: 50%; background: var(--accent-purple-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h2 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; text-align: center; margin-bottom: 8px;">Welcome to JobPrep Hub</h2>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; text-align: center; margin-bottom: 24px; line-height: 1.4;">Sign in or create a premium account to unlock career boards, interview materials, and DSA checklists.</p>
+        
+        <div class="auth-dropdown-tabs" style="margin-bottom: 20px;">
+          <button class="auth-dropdown-tab active" id="main-tab-signin-btn">Sign In</button>
+          <button class="auth-dropdown-tab" id="main-tab-signup-btn">Sign Up</button>
+        </div>
+
+        <!-- A. Main Sign In Form -->
+        <form id="main-signin-form" class="auth-dropdown-form active-form">
+          <div class="attractive-input-group" style="margin-bottom: 12px;">
+            <input type="email" id="main-signin-email" required placeholder="Email Address">
+          </div>
+          <div class="attractive-input-group" style="margin-bottom: 12px;">
+            <input type="password" id="main-signin-password" required placeholder="Password">
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; font-size: 0.9rem; font-weight: 600; margin-top: 8px; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);">Sign In</button>
+          <button type="button" class="btn-guest-explore" id="main-btn-guest-explore" style="width: 100%; padding: 10px; font-size: 0.85rem; background: transparent; border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-secondary); cursor: pointer; margin-top: 8px; font-weight: 600; transition: var(--transition-smooth);">Explore as Guest</button>
+        </form>
+
+        <!-- B. Main Sign Up Form -->
+        <form id="main-signup-form" class="auth-dropdown-form">
+          <div class="attractive-input-group" style="margin-bottom: 12px;">
+            <input type="text" id="main-signup-name" required placeholder="Full Name">
+          </div>
+          <div class="attractive-input-group" style="margin-bottom: 12px;">
+            <input type="email" id="main-signup-email" required placeholder="Email Address">
+          </div>
+          <div class="attractive-input-group" style="margin-bottom: 12px;">
+            <select id="main-signup-role" style="width: 100%; padding: 11px 12px; border-radius: 10px; background: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.85rem; outline:none;">
+              <option value="Frontend Engineer">Frontend Engineer</option>
+              <option value="Backend Developer">Backend Developer</option>
+              <option value="Fullstack Engineer">Fullstack Engineer</option>
+              <option value="DevOps & Cloud">DevOps & Cloud</option>
+              <option value="AI / ML Specialist">AI / ML Specialist</option>
+            </select>
+          </div>
+          <div class="attractive-input-group" style="margin-bottom: 12px;">
+            <input type="password" id="main-signup-password" required placeholder="Password">
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; font-size: 0.9rem; font-weight: 600; margin-top: 8px; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);">Create Account</button>
+        </form>
+      </div>
+
+      <!-- 1. JOB PORTAL SECTION -->
+      <section id="jobs-section" class="content-section active-section">
+        
+        <!-- Live Statistics widgets -->
+        <div class="dashboard-top-widgets">
+          <div class="glass-card stat-widget">
+            <div class="stat-icon-box purple">💼</div>
+            <div class="stat-text">
+              <span class="stat-val" id="widget-jobs-count">0</span>
+              <span class="stat-title">Jobs Available</span>
+            </div>
+          </div>
+          <div class="glass-card stat-widget">
+            <div class="stat-icon-box emerald">✓</div>
+            <div class="stat-text">
+              <span class="stat-val" id="widget-applied-count">0</span>
+              <span class="stat-title">Jobs Applied</span>
+            </div>
+          </div>
+          <div class="glass-card stat-widget">
+            <div class="stat-icon-box purple">⚡</div>
+            <div class="stat-text">
+              <span class="stat-val" id="widget-dsa-completed">0/0</span>
+              <span class="stat-title">DSA Problems Solved</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters Box -->
+        <div class="glass-card filter-search-container">
+          <div class="input-group">
+            <input type="text" id="job-search" placeholder="Search roles, skills, or companies...">
+          </div>
+          
+          <div class="input-group">
+            <select id="job-type-filter">
+              <option value="all">All Job Types</option>
+              <option value="Full-time">Full-time</option>
+              <option value="Remote">Remote</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <select id="job-exp-filter">
+              <option value="all">All Experiences</option>
+              <option value="entry">Entry-level (0-2y)</option>
+              <option value="mid">Mid-level (3-4y)</option>
+              <option value="senior">Senior (5y+)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Jobs Board Listings -->
+        <div class="jobs-grid" id="jobs-list">
+          <!-- Injected dynamically by app.js -->
+        </div>
+      </section>
+
+      <!-- 2. PREPARATION ZONE SECTION -->
+      <section id="prep-section" class="content-section">
+        <div class="prep-grid">
+          
+          <!-- Prep categories sidebar links -->
+          <div class="prep-topics-sidebar" id="prep-sidebar">
+            <!-- Injected by app.js -->
+          </div>
+
+          <!-- Notes container & quizzes -->
+          <div class="prep-main-panel">
+            <div class="prep-notes-window" id="prep-notes-window">
+              <!-- Injected dynamically by app.js -->
+            </div>
+            
+            <!-- Quizzes section -->
+            <div id="quiz-window">
+              <!-- Injected by app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. HIRING PATTERNS SECTION -->
+      <section id="companies-section" class="content-section">
+        <div class="companies-grid" id="companies-grid">
+          <!-- Injected dynamically by app.js -->
+        </div>
+      </section>
+
+      <!-- 4. DSA SHEETS SECTION -->
+      <section id="dsa-section" class="content-section">
+        <div class="dsa-dashboard">
+          
+          <!-- Summary card with circular progress loader -->
+          <div class="glass-card dsa-summary-card">
+            <h3 style="font-family: var(--font-heading); text-align: center;">Preparation Progress</h3>
+            
+            <div class="progress-circular-container">
+              <div class="circular-progress" id="circular-progress">
+                <span class="progress-value" id="dsa-progress-val">0%</span>
+              </div>
+            </div>
+
+            <div class="progress-details-list">
+              <div class="progress-item">
+                <span>Total Problems</span>
+                <span id="dsa-total-count">0</span>
+              </div>
+              <div class="progress-item">
+                <span>Completed Tasks</span>
+                <span id="dsa-completed-count">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordions of problems lists -->
+          <div class="dsa-sheet-accordion" id="dsa-accordion">
+            <!-- Injected dynamically by app.js -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Job Application Form Modal Overlay -->
+  <div class="modal-overlay" id="apply-modal">
+    <div class="glass-card modal-content">
+      <div class="modal-header">
+        <div>
+          <h2 class="job-modal-title">Apply to Stripe</h2>
+          <p class="job-modal-subtitle" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;"></p>
+        </div>
+        <button class="modal-close" aria-label="Close apply dialog">&times;</button>
+      </div>
+      
+      <form id="apply-form">
+        <div class="modal-body">
+          <div class="input-group">
+            <label style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 6px;">Full Name *</label>
+            <input type="text" required placeholder="John Doe">
+          </div>
+          
+          <div class="input-group">
+            <label style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 6px;">Email Address *</label>
+            <input type="email" required placeholder="john.doe@example.com">
+          </div>
+
+          <div class="input-group">
+            <label style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 6px;">LinkedIn Profile Link</label>
+            <input type="url" placeholder="https://linkedin.com/in/username">
+          </div>
+
+          <div class="input-group">
+            <label style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 6px;">Upload Resume/CV *</label>
+            <input type="file" required accept=".pdf,.doc,.docx" style="padding: 10px;">
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-secondary); background: var(--bg-primary); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color)">
+            <strong style="display: block; margin-bottom: 4px;">Job Prerequisites:</strong>
+            <ul id="modal-requirements" style="margin-left: 16px;">
+              <!-- Loaded dynamically -->
+            </ul>
+          </div>
+          
+          <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; margin-top: 10px;">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification alerts container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JS Scripts -->
+  <script src="app.js?v=10"></script>
+</body>
+</html>
